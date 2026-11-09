@@ -1,0 +1,111 @@
+/* ============================================================ cinema
+   Scroll scenes, 3D and the light effects. Loaded after styles.css. */
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ------------------------------------------------------------ intro */
+
+.intro { position: fixed; inset: 0; z-index: 200; background: #2a0f63; display: grid; place-items: center; color: #fff; }
+.intro__curve { position: absolute; left: 0; right: 0; top: 100%; width: 100%; height: 14vh; fill: #2a0f63; }
+.intro__inner { display: grid; justify-items: center; gap: 18px; }
+.intro__inner img { width: 92px; height: auto; }
+.intro__name { display: flex; overflow: hidden; font-family: 'Bricolage', sans-serif; font-weight: 800; font-size: clamp(42px, 7vw, 76px); letter-spacing: -0.04em; line-height: 1.05; }
+.intro__name span { display: inline-block; }
+.intro__bar { width: 180px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, #8b5cf6, #f2a93b); transform-origin: 0 50%; }
+
+/* ------------------------------------------------------------ drawer */
+
+.drawer { z-index: 49; }
+.drawer__nav a small { font-family: 'Figtree', sans-serif; font-size: 13px; color: var(--ink-3); margin-right: 10px; }
+
+/* ------------------------------------------------------------ manifesto */
+
+.manifesto { padding: clamp(90px, 13vw, 170px) 0; }
+.manifesto .container { max-width: 1100px; }
+.manifesto__text { font-family: 'Bricolage', sans-serif; font-weight: 800; font-size: clamp(32px, 5.2vw, 66px); line-height: 1.12; letter-spacing: -0.035em; color: var(--ink); }
+.mword__accent { background: linear-gradient(92deg, var(--violet-600), #c026d3 55%, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root[data-theme='dark'] .mword__accent { background-image: linear-gradient(92deg, #a78bfa, #f0abfc 55%, #fbbf24); }
+
+/* ------------------------------------------------------------ app tour */
+
+.tour { position: relative; background: var(--surface-2); }
+.tour .section-head { margin-bottom: 0; }
+.tour .section-head h2 { font-size: clamp(28px, 3vw, 40px); }
+.tour .lead { font-size: 16.5px; margin-top: 12px; }
+.tour__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; padding-top: 60px; }
+.tour__grid { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: center; }
+.tour__now { margin-top: 32px; padding: 22px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); min-height: 196px; }
+.tour__count { display: block; font-family: 'Bricolage', sans-serif; font-weight: 800; font-size: 30px; color: var(--brand); letter-spacing: -0.02em; margin-bottom: 10px; }
+.tour__count em { font-style: normal; font-size: 16px; color: var(--ink-3); }
+.tour__now strong { display: block; font-family: 'Bricolage', sans-serif; font-size: 21px; margin-top: 8px; }
+.tour__now p { margin-top: 6px; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+.tour__bar { height: 4px; border-radius: 4px; background: var(--surface-2); margin-top: 16px; overflow: hidden; }
+.tour__bar span { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--violet-500), var(--gold)); }
+.tour-card__tag { display: inline-block; padding: 3px 10px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); font-size: 12px; font-weight: 800; letter-spacing: 0.03em; }
+.tour__window { position: relative; overflow: hidden; padding: 30px 0; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 92%, transparent); }
+.tour__track { display: flex; gap: 34px; width: max-content; padding: 0 40px 0 20px; will-change: transform; }
+.tour__item { width: min(230px, 25vh); flex-shrink: 0; text-align: center; opacity: 0.5; transform: scale(0.9); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+.tour__item.is-on { opacity: 1; transform: scale(1); }
+.tour__item .phone__body { box-shadow: var(--shadow); }
+.tour__item.is-on .phone__body { box-shadow: var(--shadow-lg), 0 0 0 4px color-mix(in srgb, var(--brand) 35%, transparent); }
+.tour__label { display: block; margin-top: 16px; font-weight: 700; font-size: 14.5px; color: var(--ink-2); }
+.tour__item.is-on .tour__label { color: var(--brand); }
+
+.tour--flat { padding: 80px 0 64px; overflow: hidden; }
+
+/* small screens: carousel with focus */
+.carousel-m {
+  --card: min(58vw, 230px);
+  display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  padding: 18px calc(50% - var(--card) / 2) 26px; scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+.carousel-m::-webkit-scrollbar { display: none; }
+.carousel-m__item {
+  --focus: 0;
+  flex: 0 0 var(--card); scroll-snap-align: center; scroll-snap-stop: always;
+  border: 0; padding: 0; background: none;
+  opacity: calc(0.38 + var(--focus) * 0.62);
+  transform: scale(calc(0.86 + var(--focus) * 0.14)) translateY(calc((1 - var(--focus)) * 14px));
+  transition: opacity 0.15s linear, transform 0.15s linear;
+  will-change: transform, opacity;
+}
+.carousel-m__item .phone__body { box-shadow: var(--shadow); transition: box-shadow 0.4s var(--ease); }
+.carousel-m__item.is-on .phone__body { box-shadow: var(--shadow-lg), 0 0 0 3px color-mix(in srgb, var(--brand) 35%, transparent); }
+.carousel-m__dots { display: flex; justify-content: center; gap: 7px; margin-top: 4px; }
+.carousel-m__dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line-2); transition: width 0.35s var(--ease), background-color 0.3s; }
+.carousel-m__dots button.is-on { width: 26px; background: var(--brand); }
+.carousel-m__caption { margin: 18px auto 0; max-width: 420px; min-height: 128px; text-align: center; padding: 18px 20px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.carousel-m__caption strong { display: block; font-family: 'Bricolage', sans-serif; font-size: 20px; margin-top: 8px; }
+.carousel-m__caption strong em { font-style: normal; color: var(--brand); margin-right: 4px; }
+.carousel-m__caption p { margin-top: 4px; color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) {
+  .carousel-m { scroll-behavior: auto; }
+}
+.tour--flat .section-head { margin-bottom: 28px; }
+.tour-flat { display: flex; gap: 18px; overflow-x: auto; padding: 6px var(--gutter) 24px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.tour-flat::-webkit-scrollbar { display: none; }
+.tour-card { margin: 0; flex: 0 0 210px; scroll-snap-align: center; }
+.tour-card figcaption { margin-top: 14px; }
+.tour-card figcaption strong { display: block; font-size: 16px; margin-top: 6px; }
+.tour-card figcaption small { display: block; color: var(--ink-2); font-size: 13.5px; line-height: 1.45; margin-top: 3px; }
+
+/* ------------------------------------------------------------ 3D map */
+
+.map-3d { perspective: 1400px; perspective-origin: 50% 0%; padding: 40px 0 20px; }
+.map { overflow: visible; transform-style: preserve-3d; transform-origin: 50% 70%; }
+.map .city { transform-style: preserve-3d; }
+.city__beam { position: absolute; left: 50%; bottom: 50%; width: 3px; margin-left: -1.5px; border-radius: 3px; background: linear-gradient(0deg, var(--brand), transparent); transform-origin: 50% 100%; transform: rotateX(-90deg); opacity: 0.85; pointer-events: none; }
+.city--hub .city__beam { width: 5px; margin-left: -2.5px; background: linear-gradient(0deg, var(--gold), transparent); }
+.map .city__name { top: auto; bottom: calc(100% + 8px); transform-origin: 50% 100%; transform: translateZ(3px) rotateX(var(--counter, 0deg)); box-shadow: 0 4px 12px -4px rgb(46 16 101 / 0.35); }
+.map .city--hub .city__name { bottom: calc(100% + 14px); }
+
+/* ------------------------------------------------------------ final */
+
+.final__phone { transform-origin: 50% 100%; }
+
+/* ------------------------------------------------------------ responsive */
+
