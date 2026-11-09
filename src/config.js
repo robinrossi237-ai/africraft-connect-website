@@ -17,5 +17,5 @@ export const PRICES = {
   pass24h: 300,
   pass3d: 500,
   pass7d: 1000,
-  artisanFreeDays: 90,
+  artisanFreeDays: 30,
 };

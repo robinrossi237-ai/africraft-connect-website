@@ -28,7 +28,7 @@ export const TEXTS = {
       facts: [
         ['48 h', 'pour vérifier un artisan'],
         ['200 XAF', 'pour débloquer un contact'],
-        ['90 jours', 'offerts aux artisans'],
+        ['30 jours', 'de visibilité offerts aux artisans'],
       ],
     },
     demo: {
@@ -163,7 +163,7 @@ export const TEXTS = {
           ['Des missions à proximité', 'Triées par distance et par urgence.'],
           ['Formation gratuite', '5 modules, même hors connexion.'],
           ['Un profil qui inspire confiance', 'Badges, niveau, photos et avis.'],
-          ['90 jours offerts', 'Puis un abonnement pour rester visible.'],
+          ['30 jours offerts', 'Puis un abonnement pour rester visible.'],
         ],
         cta: 'Rejoindre Africraft',
       },
@@ -198,7 +198,7 @@ export const TEXTS = {
       artisanRows: [
         ['Inscription', 'Gratuit'],
         ['Formation en ligne', 'Gratuit'],
-        ['Visibilité les 90 premiers jours', 'Offert'],
+        ['Visibilité les 30 premiers jours', 'Offert'],
       ],
       artisanAfter: 'Ensuite, un abonnement mensuel ou trimestriel pour rester visible. Prix annoncés au lancement.',
       payment: 'Paiement par Mobile Money',
@@ -228,7 +228,7 @@ export const TEXTS = {
         ['Est-ce que je paie l’artisan via Africraft ?', 'Non. Africraft vous met en relation. Vous vous mettez d’accord avec l’artisan sur le prix et le paiement du travail, directement entre vous.'],
         ['Pourquoi payer pour voir un numéro ?', 'Ces 200 XAF protègent les artisans des appels abusifs et financent la vérification des profils. Une fois débloqué, le contact reste dans « Mes artisans » pour toujours.'],
         ['Que se passe-t-il si un artisan ne répond pas ?', 'Vous pouvez contacter un autre artisan intéressé. Et si une demande ne reçoit pas de réponse en 48 h, l’application vous propose de l’améliorer.'],
-        ['Je suis artisan : combien ça coûte ?', 'L’inscription et la formation sont gratuites, et vous avez 90 jours de visibilité offerts. Ensuite, un abonnement mensuel ou trimestriel vous garde visible dans les recherches.'],
+        ['Je suis artisan : combien ça coûte ?', 'L’inscription et la formation sont gratuites, et vous avez 30 jours de visibilité offerts. Ensuite, un abonnement mensuel ou trimestriel vous garde visible dans les recherches.'],
         ['L’application marche-t-elle avec peu de réseau ?', 'Oui. Elle est pensée pour les connexions lentes, avec un mode économie de données, et les leçons se téléchargent pour être suivies hors connexion.'],
         ['Que faire en cas de problème avec un artisan ?', 'Signalez-le depuis son profil ou envoyez une plainte à l’équipe dans « Avis sur Africraft ». Nous vérifions chaque signalement sous 24 h.'],
       ],
@@ -280,7 +280,7 @@ export const TEXTS = {
       facts: [
         ['48 h', 'to verify a craftsman'],
         ['200 XAF', 'to unlock a contact'],
-        ['90 days', 'free for craftsmen'],
+        ['30 days', 'of free visibility for craftsmen'],
       ],
     },
     demo: {
@@ -415,7 +415,7 @@ export const TEXTS = {
           ['Jobs nearby', 'Sorted by distance and urgency.'],
           ['Free training', '5 modules, even offline.'],
           ['A profile people trust', 'Badges, level, photos and reviews.'],
-          ['90 days free', 'Then a plan to stay visible.'],
+          ['30 days free', 'Then a plan to stay visible.'],
         ],
         cta: 'Join Africraft',
       },
@@ -450,7 +450,7 @@ export const TEXTS = {
       artisanRows: [
         ['Sign-up', 'Free'],
         ['Online training', 'Free'],
-        ['Visibility for the first 90 days', 'Free'],
+        ['Visibility for the first 30 days', 'Free'],
       ],
       artisanAfter: 'Then a monthly or quarterly plan to stay visible. Prices announced at launch.',
       payment: 'Pay with Mobile Money',
@@ -480,7 +480,7 @@ export const TEXTS = {
         ['Do I pay the craftsman through Africraft?', 'No. Africraft puts you in touch. You agree on the price and payment for the work directly with the craftsman.'],
         ['Why pay to see a number?', 'These 200 XAF protect craftsmen from abusive calls and fund profile checks. Once unlocked, the contact stays in “My craftsmen” for good.'],
         ['What if a craftsman doesn’t answer?', 'You can contact another interested craftsman. And if a request gets no answer within 48 h, the app suggests how to improve it.'],
-        ['I’m a craftsman: what does it cost?', 'Sign-up and training are free, and you get 90 days of visibility for free. After that, a monthly or quarterly plan keeps you visible in searches.'],
+        ['I’m a craftsman: what does it cost?', 'Sign-up and training are free, and you get 30 days of visibility for free. After that, a monthly or quarterly plan keeps you visible in searches.'],
         ['Does the app work with a weak network?', 'Yes. It is built for slow connections, with a data-saving mode, and lessons can be downloaded to follow offline.'],
         ['What if there’s a problem with a craftsman?', 'Report them from their profile or send a complaint to the team in “Reviews of Africraft”. We check every report within 24 h.'],
       ],

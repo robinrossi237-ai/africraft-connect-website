@@ -297,20 +297,26 @@ export function Pricing() {
 
 /* ------------------------------------------------------------ coverage */
 
+// [name, lat, lng, hub, where the name sits: t(op) b(ottom) l(eft) r(ight)]
 const CITIES = [
-  ['Douala', 4.0511, 9.7679, 1],
-  ['Yaoundé', 3.848, 11.5021, 1],
-  ['Bafoussam', 5.4778, 10.4176, 0],
-  ['Bamenda', 5.9631, 10.1591, 0],
-  ['Bertoua', 4.5776, 13.6846, 0],
-  ['Ebolowa', 2.9, 11.15, 0],
-  ['Garoua', 9.3, 13.4, 0],
-  ['Kribi', 2.9373, 9.9077, 0],
-  ['Maroua', 10.5956, 14.3247, 0],
-  ['Ngaoundéré', 7.3167, 13.5833, 0],
+  ['Douala', 4.0511, 9.7679, 1, 't'],
+  ['Yaoundé', 3.848, 11.5021, 1, 't'],
+  ['Bafoussam', 5.4778, 10.4176, 0, 'r'],
+  ['Bamenda', 5.9631, 10.1591, 0, 't'],
+  ['Dschang', 5.4442, 10.0533, 0, 'l'],
+  ['Buea', 4.1527, 9.241, 0, 'l'],
+  ['Kumba', 4.6363, 9.4469, 0, 'l'],
+  ['Nkongsamba', 4.9547, 9.9404, 0, 'r'],
+  ['Edéa', 3.8, 10.1333, 0, 'r'],
+  ['Kribi', 2.9373, 9.9077, 0, 'l'],
+  ['Ebolowa', 2.9, 11.15, 0, 'r'],
+  ['Bertoua', 4.5776, 13.6846, 0, 'r'],
+  ['Ngaoundéré', 7.3167, 13.5833, 0, 'l'],
+  ['Garoua', 9.3, 13.4, 0, 'l'],
+  ['Maroua', 10.5956, 14.3247, 0, 'l'],
 ];
 
-const project = (lat, lng) => [((lng - 9.2) / (14.8 - 9.2)) * 92 + 4, ((11 - lat) / (11 - 2.6)) * 92 + 4];
+const project = (lat, lng) => [((lng - 9.0) / (14.8 - 9.0)) * 90 + 5, ((11 - lat) / (11 - 2.6)) * 92 + 4];
 
 export function Coverage() {
   const { t } = useLang();
@@ -323,7 +329,7 @@ export function Coverage() {
   const spin = useTransform(sp, [0, 1], [-18, -6]);
   const lift = useTransform(sp, [0, 1], [80, 0]);
   const counter = useTransform(tilt, (v) => `${-v}deg`);
-  const pts = CITIES.map(([name, lat, lng, hub]) => ({ name, hub, xy: project(lat, lng) }));
+  const pts = CITIES.map(([name, lat, lng, hub, side]) => ({ name, hub, side, xy: project(lat, lng) }));
   const hubs = pts.filter((p) => p.hub);
   return (
     <section className="section">
@@ -370,7 +376,7 @@ export function Coverage() {
             <motion.button
               type="button"
               key={p.name}
-              className={`city ${p.hub ? 'city--hub' : ''} ${hover === p.name ? 'is-hover' : ''}`}
+              className={`city city--${p.side} ${p.hub ? 'city--hub' : ''} ${hover === p.name ? 'is-hover' : ''}`}
               style={{ left: `${(p.xy[0] + 6) / 1.12}%`, top: `${(p.xy[1] + 6) / 1.12}%` }}
               initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
